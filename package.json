@@ -1,0 +1,26 @@
+{
+  "name": "roberto",
+  "version": "0.0.1",
+  "description": "",
+  "main": "roberto.js",
+  "author": "Antwaun Tune <aj.yaboy@outlook.com>",
+  "dependencies": {
+    "async": "~0.2.8",
+    "discord.js": "^11.3.2",
+    "express": "~3.2.4",
+    "ffmpeg": "0.0.4",
+    "ffmpeg-binaries": "^4.0.0",
+    "get-json": "^1.0.0",
+    "rivescript": "^2.0.0-alpha.6",
+    "socket.io": "~0.9.14"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "discord",
+    "bot"
+  ],
+  "license": "Apache-2.0"
+}
