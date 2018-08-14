@@ -9,7 +9,6 @@
     "discord.js": "^11.4.0",
     "express": "~3.2.4",
     "ffmpeg-binaries": "3.2.2-3",
-    "rivescript": "1.17.2",
     "get-json": "^1.0.0",
     "node-opus": "^0.3.0",
     "rivescript": "^2.0.0-alpha.6",
@@ -17,7 +16,7 @@
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node roberto.js"
   },
   "keywords": [
