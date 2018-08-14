@@ -1,6 +1,7 @@
 # Roberto
 Yet another discord bot, cleaner, more efficient.
-
+Created by: Aj <aj.yaboy@outlook.com>
+Computer Science Student
 ## Hosting
 ### Before you start
 #### Roberto voice channel commands require the FFMPEG binary to be installed and the bin folder to be located in the root directory.
