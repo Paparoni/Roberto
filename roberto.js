@@ -1,19 +1,22 @@
 const Discord = require("discord.js");
 const config = require("./config.js");
-
 const Roberto = new Discord.Client();
 const RiveScript = require("rivescript");
 const Brain = new RiveScript();
 const ai = require('./ai.js');
+const Network = require('./network.js');
 
 Roberto.login(config.token(process.env.TOKEN)).then(function() {
+    ai.load(Brain);
     console.log("Roberto is now online.");
 }, function(error) {
     console.error(error);
 });
+Network.connect(process.env.PORT || 3000);
+
 // ai
 Roberto.on('message', message => {
-    ai.load(Brain, ai.run(Brain, Roberto, message));
+    ai.run(Brain, Roberto, message)
 })
 
 Roberto.on('message', message => {
@@ -38,9 +41,9 @@ Roberto.on('message', message => {
         });
 
         runCommand.then(function(success) {}, function(error) {
-            console.log("Command error: "+error);
+            console.log("Command error: " + error);
         });
-     
+
     } else {
         return;
     }
