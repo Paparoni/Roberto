@@ -2,12 +2,19 @@ const Discord = require("discord.js");
 const config = require("./config.js");
 
 const Roberto = new Discord.Client();
+const RiveScript = require("rivescript");
+const Brain = new RiveScript();
+const ai = require('./ai.js');
 
-Roberto.login(config.token).then(function() {
+Roberto.login(config.token(process.env.TOKEN)).then(function() {
     console.log("Roberto is now online.");
 }, function(error) {
     console.error(error);
 });
+// ai
+Roberto.on('message', message => {
+    ai.load(Brain, ai.run(Brain, Roberto, message));
+})
 
 Roberto.on('message', message => {
     // Roberto cannot talk to himself >:(
