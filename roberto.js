@@ -12,7 +12,7 @@ Roberto.login(config.token(process.env.TOKEN)).then(function() {
 }, function(error) {
     console.error(error);
 });
-Network.connect(process.env.PORT || 3000);
+Network.connect(process.env.PORT || config.PORT);
 
 // ai
 Roberto.on('message', message => {
@@ -41,9 +41,9 @@ Roberto.on('message', message => {
         });
 
         runCommand.then(function(success) {}, function(error) {
-            console.log("Command error: " + error);
+            console.log("Command error: "+error);
         });
-
+     
     } else {
         return;
     }
