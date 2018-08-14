@@ -18,7 +18,7 @@ Computer Science Student
 #### Next on line 2 you can change the port value as well, the default port is 3000
 #### This must be a number
 `const __PORT__ = "SET PORT HERE"`
-#### Alternatively you could create an environment variable named `PORT` and set that as your token instead.
+#### Alternatively you could create an environment variable named `PORT` and set that as your port instead.
 ##### NOTE: Environment variables have priority, if an environemnt variable for PORT is defined the port inside of `config.js` becomes irrelevant.
 
 #### (OPTIONAL) You can change the command prefix as well
