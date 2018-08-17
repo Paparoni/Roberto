@@ -5,24 +5,31 @@ const RiveScript = require("rivescript");
 const Brain = new RiveScript();
 const ai = require('./ai.js');
 const Network = require('./network.js');
+const spawn = require("child_process").spawn;
 
 Roberto.login(config.token(process.env.TOKEN)).then(function() {
     ai.load(Brain);
+    const python_modules = spawn('python',["modules.py"]);
+    python_modules.stdout.on('data', (data) => {
+        console.log(data);
+    });
     console.log("Roberto is now online.");
 }, function(error) {
     console.error(error);
 });
 Network.connect(process.env.PORT || config.PORT);
 
-// ai
+// Trivia Game Stuff
 Roberto.on('message', message => {
-    ai.run(Brain, Roberto, message)
+    
 })
-
 Roberto.on('message', message => {
     // Roberto cannot talk to himself >:(
     if (message.author == Roberto.user) return;
-
+    
+    // Run AI script
+    ai.run(Brain, Roberto, message)
+    
     // Boolean whether or not the message starts with the command prefix
     var isCommand = (message.content.toLowerCase().charAt(0) == config.command_prefix) ? true : false;
 
