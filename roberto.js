@@ -9,7 +9,7 @@ const spawn = require("child_process").spawn;
 
 Roberto.login(config.token(process.env.TOKEN)).then(function() {
     ai.load(Brain);
-    const python_modules = spawn('python',["modules.py"]);
+    const python_modules = spawn('py',["modules.py"]);
     python_modules.stdout.on('data', (data) => {
         console.log(data);
     });
