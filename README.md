@@ -17,12 +17,14 @@ You can find the download here: https://www.python.org/downloads/</br>
 On line 1 change that value to your bot token which is found on the discord dev dashboard.</br>
 `const __token__ = "SET BOT TOKEN HERE"`</br>
 Alternatively you could create an environment variable named `TOKEN` and set that as your token instead.</br>
+
 NOTE: Environment variables have priority, if an environemnt variable for TOKEN is defined the token inside of `config.js` becomes irrelevant.</br>
 
 #### Next on line 2 you can change the port value as well, the default port is 3000
 #### This must be a number
 `const __PORT__ = "SET PORT HERE"`</br>
 Alternatively you could create an environment variable named `PORT` and set that as your port instead.</br>
+
 NOTE: Environment variables have priority, if an environemnt variable for PORT is defined the port inside of `config.js` becomes irrelevant.</br>
 
 #### (OPTIONAL) You can change the command prefix as well</br>
