@@ -29,4 +29,6 @@ Computer Science Student
 #### Now you are ready to install all the modules
 #### Run `npm install`
 #### Then finally run `node Roberto.js`
+#### Once you begin hosting, after the first time the bot can be started by running `roberto.bat`
+
 #### There you go you're hosting the bot.
