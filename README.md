@@ -7,6 +7,10 @@ Computer Science Student
 #### Roberto voice channel commands require the FFMPEG binary to be installed and the bin folder to be located in the root directory.
 #### You can find the download here: https://www.ffmpeg.org/download.html
 
+#### The drawing commands require python to be installed.
+#### You can find the download here: https://www.python.org/downloads/
+
+
 ### Editing the config file
 #### Before you begin hosting you have to edit the `config.js` file
 
