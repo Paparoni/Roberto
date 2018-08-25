@@ -2,6 +2,8 @@
 Yet another discord bot, cleaner, more efficient.<br/>
 Created by: Antwaun Tune <tuneantwaun@gmail.com><br/>
 Computer Science Student
+### [Add Roberto to your server](http://ajeezy.tech/roberto/)
+
 ## Hosting
 ### Before you start
 Roberto voice channel commands require the FFMPEG binary to be installed and the bin folder to be located in the root directory.</br>
