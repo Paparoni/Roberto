@@ -1,6 +1,6 @@
 # Roberto
 Yet another discord bot, cleaner, more efficient.<br/>
-Created by: Aj <aj.yaboy@outlook.com><br/>
+Created by: Antwaun Tune <tuneantwaun@gmail.com><br/>
 Computer Science Student
 ## Hosting
 ### Before you start
