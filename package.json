@@ -10,8 +10,8 @@
     "express": "~3.2.4",
     "ffmpeg-binaries": "3.2.2-3",
     "get-json": "^1.0.0",
+    "rivescript": "1.17.2",
     "node-opus": "^0.3.0",
-    "rivescript": "^2.0.0-alpha.6",
     "socket.io": "~0.9.14"
   },
   "devDependencies": {},

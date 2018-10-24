@@ -1,7 +1,7 @@
 import subprocess
 import sys
 import os
-modules = ['requests', 'Pillow']
+modules = ['requests', 'Pillow', 'image']
 for module in modules:
     print('success')
     if module in sys.modules is False:
