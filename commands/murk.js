@@ -5,7 +5,6 @@ exports.execute = (Roberto, message, params, success, error) => {
     let url = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
     drawScript = spawn('python', ['draw.py', 'distort', url]);
     drawScript.stdout.on('data', (data) => {
-        console.log('called.')
-        message.channel.send('', { files: ['./images/out-trans.jpg'] });
+        message.channel.send('', { files: ['./images/out-trans.png'] });
     })
 }

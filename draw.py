@@ -44,6 +44,6 @@ elif sys.argv[1] == 'distort':
  [(320, 360, 480, 480), [363, 315, 275, 480, 434, 469, 453, 373]],
  [(480, 360, 640, 480), [453, 373, 434, 469, 640, 462, 640, 319]]]
     img = img.transform(img.size, Image.MESH, mesh)
-    img.save('images/out-trans.jpg')
+    img.save('images/out-trans.png')
     print("Image created...")
     sys.stdout.flush()
