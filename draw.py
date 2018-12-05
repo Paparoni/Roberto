@@ -1,6 +1,7 @@
 import shutil
 import requests
 from PIL import *
+from PIL import Image
 import sys
 
 # Draws user avatar in a meme format )
