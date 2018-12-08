@@ -1,7 +1,7 @@
 const getJSON = require("get-json");
 
 exports.execute = (Roberto, message, params, success, error) => {
-    var word = params[0];
+    var word = params.join(' ');
     getJSON("http://api.urbandictionary.com/v0/define?term=" + word, function(err, c) {
         if (err) {
             error(new Error(err));
