@@ -109,6 +109,40 @@ exports.execute = (Roberto, message, params, success, error) => {
                 }
             })
         break;
+        case 'recent':
+            getJSON(`http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=${username}&api_key=${Key}&format=json`, function(err, response) {
+                if (err) {
+                    error(err)
+                } else {
+                    if (response.recenttracks == undefined) {
+                        message.reply('Something went wrong chief.')
+                    } else {
+                        let a = response.recenttracks.track
+                        message.channel.send({
+                            embed: {
+                                color: 3447003,
+                                author: {
+                                    name: Roberto.user.username,
+                                    icon_url: Roberto.user.avatarURL
+                                },
+                                description: `**Recent tracks for [${username}](http://www.last.fm/user/${username})** \n \n1. [${a[0].name}](${a[0].url}) by **${a[0].artist["#text"]}** 
+                                        2. [${a[1].name}](${a[1].url}) by **${a[1].artist["#text"]}** 
+                                        3. [${a[2].name}](${a[2].url}) by **${a[2].artist["#text"]}** 
+                                        4. [${a[3].name}](${a[3].url}) by **${a[3].artist["#text"]}** 
+                                        5. [${a[4].name}](${a[4].url}) by **${a[4].artist["#text"]}** 
+                                        6. [${a[5].name}](${a[5].url}) by **${a[5].artist["#text"]}** 
+                                        7. [${a[6].name}](${a[6].url}) by **${a[6].artist["#text"]}** 
+                                        8. [${a[7].name}](${a[7].url}) by **${a[7].artist["#text"]}** 
+                                        9. [${a[8].name}](${a[8].url}) by **${a[8].artist["#text"]}**
+                                        10. [${a[9].name}](${a[9].url}) by **${a[9].artist["#text"]}**`,
+
+                                timestamp: new Date()
+                            }
+                        });
+                    }
+                }
+            })
+        break;
         default:
             message.reply('Sorry I need a proper task to search.')
     }
