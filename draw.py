@@ -1,5 +1,6 @@
 import shutil
 import requests
+import subprocess
 from PIL import *
 from PIL import Image
 import sys
@@ -47,4 +48,15 @@ elif sys.argv[1] == 'distort':
     img = img.transform(img.size, Image.MESH, mesh)
     img.save('images/out-trans.png')
     print("Image created...")
+    sys.stdout.flush()
+elif sys.argv[1] == 'boom':
+    r = requests.get(sys.argv[2], headers={'User-Agent': 'Mozilla/5.0'}, stream=True)
+    if r.status_code == 200:
+        # Download the raw image and copy it to a file
+        with open('images/in.png', 'wb') as f:
+            r.raw.decode_content = True
+            shutil.copyfileobj(r.raw, f)
+    img = Image.open('images/in.png', 'r')
+    subprocess.call(['magick', 'images/in.png', '-implode', '-2', 'images/out-boom.png'])
+    print('Done')
     sys.stdout.flush()
