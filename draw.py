@@ -23,11 +23,11 @@ if sys.argv[1] == 'sparrow':
     sys.stdout.flush()
 elif sys.argv[1] == 'wth':
     r = requests.get(sys.argv[2], headers={'User-Agent': 'Mozilla/5.0'}, stream=True)
-if r.status_code == 200:
-    # Download the raw image and copy it to a file
-    with open('images/in.png', 'wb') as f:
-        r.raw.decode_content = True
-        shutil.copyfileobj(r.raw, f)
+    if r.status_code == 200:
+        # Download the raw image and copy it to a file
+        with open('images/in.png', 'wb') as f:
+            r.raw.decode_content = True
+            shutil.copyfileobj(r.raw, f)
     background = Image.open('images/wth.jpg', 'r')
     img = Image.open('images/in.png', 'r')
     size = 160, 171
