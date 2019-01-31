@@ -21,6 +21,24 @@ if sys.argv[1] == 'sparrow':
     background.save('images/out.png')
     print("Image created...")
     sys.stdout.flush()
+elif sys.argv[1] == 'bful':
+    r = requests.get(sys.argv[2], headers={'User-Agent': 'Mozilla/5.0'}, stream=True)
+    if r.status_code == 200:
+        # Download the raw image and copy it to a file
+        with open('images/in.png', 'wb') as f:
+            r.raw.decode_content = True
+            shutil.copyfileobj(r.raw, f)
+    background = Image.open('images/thisis.jpg', 'r')
+    img = Image.open('images/in.png', 'r')
+    size = 95, 105
+    offset = 255, 225
+    img = img.resize(size)
+    offset_2 = 255, 22
+    background.paste(img, offset)
+    background.paste(img, offset_2)
+    background.save('images/out-bful.png')
+    print("Image created...")
+    sys.stdout.flush()
 elif sys.argv[1] == 'wth':
     r = requests.get(sys.argv[2], headers={'User-Agent': 'Mozilla/5.0'}, stream=True)
     if r.status_code == 200:
