@@ -13,7 +13,7 @@ const editJsonFile = require("edit-json-file");
 
 Roberto.login(config.token(process.env.TOKEN)).then(function() {
     ai.load(Brain);
-    const python_modules = spawn('py', ["modules.py"]);
+    const python_modules = spawn('python', ["modules.py"]);
     python_modules.stdout.on('data', (data) => {
         console.log(data);
     });
@@ -31,23 +31,26 @@ Roberto.login(config.token(process.env.TOKEN)).then(function() {
 Network.connect(process.env.PORT || config.PORT);
 
 // Trivia Game Stuff
-
+var generatePattern = function(str) {
+    let patt = new RegExp("(?<![^ ])" + str + "(?![^ ])")
+    return patt
+}
 Roberto.on('message', message => {
     let file = editJsonFile(`${__dirname}/commands/reacts.json`);
     let reactJSON = file.toObject();
-    Object.keys(reactJSON).forEach(function(key){
-        if (message.content.toLowerCase().includes(key)){
-            let emoji = reactJSON[key];
-            try {
-            message.react(Roberto.emojis.get(emoji))
-            } catch(error){
-                console.log(error)
+    Object.keys(reactJSON).forEach(function(key) {
+        if (message.content.toLowerCase().includes(key)) {
+            let pattern = generatePattern(key)
+            if (pattern.test(message.content.toLowerCase())) {
+                let emoji = reactJSON[key];
+                try {
+                    message.react(Roberto.emojis.get(emoji))
+                } catch (error) {
+                    console.log(error)
+                }
             }
         }
     })
-    if (message.content.toLowerCase().includes('aj')) {
-        message.react(Roberto.emojis.get('432993984931954689'));
-    }
     // Roberto cannot talk to himself >:(
     if (message.author == Roberto.user) return;
 
