@@ -7,7 +7,7 @@
   "dependencies": {
     "async": "~0.2.8",
     "discord.js": "^11.4.0",
-    "express": "~3.2.4",
+    "express": "~4.17.1",
     "ffmpeg-binaries": "3.2.2-3",
     "get-json": "^1.0.0",
     "rivescript": "1.17.2",
